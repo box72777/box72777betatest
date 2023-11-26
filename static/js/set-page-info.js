@@ -46,6 +46,7 @@ function setPageInfo() {
 
     document.getElementById("email").innerHTML = getLocalStorage("email");
     document.getElementById("balance").innerHTML = getLocalStorage("balance");
+    document.getElementById("point").innerHTML = get_point();
     var obj_group = get_group();
     if (obj_group.group == "200" || obj_group.group == "201") {
       document.getElementById("group").innerHTML = "驗證者";
@@ -68,7 +69,8 @@ function setPageInfo() {
         else{
           if(obj_des.description.others != ""){
             list_des.append(cols);
-            cols.setAttribute("class","col-12 fs-4");
+            cols.setAttribute("class","col-12 col-md-3 fs-4");
+            
             let TA = document.createElement("textarea");
             TA.setAttribute("class","form-control");
             TA.setAttribute("rows",2);
@@ -80,50 +82,10 @@ function setPageInfo() {
             }
             TA.setAttribute("readonly","");
             TA.append(obj_des.description.others);
-            cols.append(TA);
             list_des.append(cols);
+            list_des.append(TA);
           }
         }
-        // if (list_skills[index_skill] == "行政支援") {
-        //   document.getElementById("gridCheck1").checked = true;
-        // }
-        // if (list_skills[index_skill] == "課業輔導") {
-        //   document.getElementById("gridCheck2").checked = true;
-        // }
-        // if (list_skills[index_skill] == "社區服務") {
-        //   document.getElementById("gridCheck3").checked = true;
-        // }
-        // if (list_skills[index_skill] == "生活扶助") {
-        //   document.getElementById("gridCheck4").checked = true;
-        // }
-        // if (list_skills[index_skill] == "電腦科技") {
-        //   document.getElementById("gridCheck5").checked = true;
-        // }
-        // if (list_skills[index_skill] == "環保教育") {
-        //   document.getElementById("gridCheck6").checked = true;
-        // }
-        // if (list_skills[index_skill] == "藝術文化") {
-        //   document.getElementById("gridCheck7").checked = true;
-        // }
-        // if (list_skills[index_skill] == "健康醫療") {
-        //   document.getElementById("gridCheck8").checked = true;
-        // }
-        // if (list_skills[index_skill] == "權益倡導") {
-        //   document.getElementById("gridCheck9").checked = true;
-        // }
-        // if (list_skills[index_skill] == "國際交流") {
-        //   document.getElementById("gridCheck10").checked = true;
-        // }
-        // if (list_skills[index_skill] == "其他") {
-
-        //   if (obj_des.description.others == "") {
-        //     document.getElementById("otherCheck").checked = false;
-        //   } else {
-        //     document.getElementById("otherCheck").checked = true;
-        //     document.getElementById("textArea").style.display = "block";
-        //     document.getElementById("textArea").value = obj_des.description.others;
-        //   }
-        // }
       }
     }
     setInfoEid();
@@ -232,7 +194,8 @@ function setPageInfo() {
     }
 
   } else if (page == "wallet.html") {
-    $("#nav-wallet").addClass("active");
+    var arr_tasks = list_plan_tasks("00000001", "1");
+    set_task_list(arr_tasks.tasks);
   } else if (page == "edit-info.html") {
     document.getElementById("email").innerHTML = getLocalStorage("email");
     document.getElementById("username").value = getLocalStorage("username");
