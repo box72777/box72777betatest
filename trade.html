@@ -57,6 +57,8 @@
   <div class="container" style="background:rgba(157, 245, 182, 0.562);">
     <div class="row border border-3 border-black">
       <div class="col d-flex justify-content-end">
+        <p class="my-1 fs-3 me-5"><i class="bi bi-card-checklist me-2"></i>任務限制餘<span class="fs-3"
+            id="number_of_task">0</span></p>
         <p class="my-1 fs-3"><i class="bi bi-clock me-2"></i>時間餘額<span class="fs-3" id="balance">0</span>小時</p>
       </div>
     </div>
@@ -67,14 +69,36 @@
     </div>
     <div class="row border border-3 border-top-0 border-black" id="trade"
       style="background-color: rgba(126, 68, 2, 0.562); height: 650px; overflow-y: scroll;">
-      <div
-        class="col-12 col-md-4 bg-danger d-flex justify-content-center align-items-center border border-2 border-dark">
-        <a class="link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
-          onclick="get_type(event)">打掃</a>
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center border border-2 border-dark"
+        style="background-color: rgb(84, 220, 0);">
+        <a class=" link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
+          onclick="get_type(event)">環境清理</a>
       </div>
-      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center bg-success fs-1">任務二</div>
-      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center bg-info fs-1">任務三</div>
-      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center bg-warning fs-1">任務四</div>
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center fs-1 border border-2 border-dark"
+        style="background-color: rgb(246, 255, 0);">
+        <a class="link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
+          onclick="get_type(event)">照顧寵物</a>
+      </div>
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center fs-1 border border-2 border-dark"
+        style="background-color: rgb(243, 117, 255);">
+        <a class="link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
+          onclick="get_type(event)">照護</a>
+      </div>
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center fs-1 border border-2 border-dark"
+        style="background-color: rgb(0, 204, 219);">
+        <a class="link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
+          onclick="get_type(event)">課業輔導</a>
+      </div>
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center fs-1 border border-2 border-dark"
+        style="background-color: rgb(255, 145, 0);">
+        <a class="link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
+          onclick="get_type(event)">行政支援</a>
+      </div>
+      <div class="col-12 col-md-4 d-flex justify-content-center align-items-center fs-1 border border-2 border-dark"
+        style="background-color: rgb(255, 103, 103)">
+        <a class="link-underline link-underline-opacity-0 text-dark fs-1" href="trade-request.html"
+          onclick="get_type(event)">其他</a>
+      </div>
     </div>
     <div class="row d-flex justify-content-center border border-3 border-top-0 border-black">
       <a href="choice.html"

@@ -38,6 +38,7 @@ doneBtn.addEventListener("click", function () {
     form.append("balance", balance);
     let settings = {
       "url": `${HOST_URL_ISU_BACKEND}/create_request`,
+      // "url": "http://127.0.0.1:8000/create_request",
       "method": "POST",
       "timeout": 0,
       "processData": false,
