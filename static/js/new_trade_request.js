@@ -26,7 +26,9 @@ doneBtn.addEventListener("click", function () {
   var cover = getLocalStorage("task_cover"); // `${TASK_COVER}`;
   var balance = getLocalStorage("balance");
   //parseFloat(balance) >= parseFloat(token)
-  if (1) {
+  if (parseFloat(balance) >= parseFloat(token) * parseFloat(people)) {
+    console.log(parseFloat(token) * parseFloat(people));
+    console.log(parseFloat(balance));
     form.append("email", email);
     form.append("name", name);
     form.append("token", token);
