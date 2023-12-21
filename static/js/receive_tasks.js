@@ -130,6 +130,9 @@ function task_save(uuid) {
     dataJSON.email = getLocalStorage("email");
     dataJSON.uuid = uuid;
 
+    pass_flag_eid = 0;
+    pass_flag_tplanet = 0;
+
     $.ajax({
         url: HOST_URL_EID_DAEMON + "/tasks/save",
         type: "POST",
@@ -138,10 +141,30 @@ function task_save(uuid) {
         data: dataJSON,
         success: function (returnData) {
             console.log(returnData);
-            window.location.replace("/issues.html");
+            pass_flag_eid = 1;
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(thrownError);
+            alert("你已經接過此任務了!!!\n請重新選擇任務")
         }
     });
+    if (pass_flag_eid) {
+        $.ajax({
+            url: HOST_URL_TPLANET_DAEMON + "/tasks/add_nowpeople",
+            type: "POST",
+            async: false,
+            crossDomain: true,
+            data: dataJSON,
+            success: function (returnData) {
+                console.log(returnData);
+                pass_flag_tplanet = 1;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError);
+            }
+        });
+    }
+    if (pass_flag_eid && pass_flag_tplanet) {
+        window.location.replace("/issues.html");
+    }
 }
