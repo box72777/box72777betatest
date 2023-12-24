@@ -25,35 +25,7 @@
   <script src="/static/js/verifier-cms-content.js"></script>
   <script src="/static/js/set-page-info.js"></script>
   <script src="/static/js/init.js"></script>
-
   <script src="/static/js/localStorage.js"></script>
-  <script>
-    function task_save_test() {
-      var dataJSON = {};
-      dataJSON.email = getLocalStorage("email");
-
-      var urlParams = new URLSearchParams(window.location.search);
-      var uuid = urlParams.get('task');
-
-      dataJSON.uuid = uuid;
-
-      $.ajax({
-        url: HOST_URL_EID_DAEMON + "/tasks/save",
-        type: "POST",
-        async: false,
-        crossDomain: true,
-        data: dataJSON,
-        success: function (returnData) {
-          console.log(returnData);
-          //window.location.replace("/issues.html");
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-          console.log(thrownError);
-          //window.location.replace("/issues.html");
-        }
-      });
-    }
-  </script>
 </head>
 
 <body onload="init();">
@@ -135,15 +107,6 @@
                   <p id="task_qrcode" class="text-center text-sm-left h5">志工任務</p>
                   <!-- <img class="qr-code-width" src="/static/imgs/executor-qr-code.png" alt=""> -->
                 </div>
-
-
-
-                <button class="btn btn-primary ml-5" onclick="task_save_test()">
-                  接受任務測試
-                </button>
-
-
-
               </div>
               <div class="col-12">
                 <div class="d-flex flex-column">

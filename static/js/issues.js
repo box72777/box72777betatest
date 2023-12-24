@@ -219,6 +219,8 @@ function finish_task() {
 
   // show task summary
   document.getElementById("task_summary").style.visibility = "visible";
+  issue_executor_uuid = getLocalStorage("target");
+  window.location.replace('verifier-cms-content.html?task=' + issue_executor_uuid);
 }
 
 function list_tasks(email) {
