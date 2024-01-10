@@ -1,28 +1,3 @@
-function task_save(obj_task) {
-  var dataJSON = {};
-  dataJSON.email = getLocalStorage("email");
-  console.log(obj_task.uuid);
-  console.log(obj_task.uuid.uuid);
-  console.log(obj_task);
-  dataJSON.uuid = obj_task.uuid;
-
-  $.ajax({
-    url: HOST_URL_EID_DAEMON + "/tasks/save",
-    type: "POST",
-    async: false,
-    crossDomain: true,
-    data: dataJSON,
-    success: function (returnData) {
-      console.log(returnData);
-      window.location.replace("/issues.html");
-    },
-    error: function (xhr, ajaxOptions, thrownError) {
-      console.log(thrownError);
-      window.location.replace("/issues.html");
-    }
-  });
-}
-
 function get_task(url) {
   var path = url.split("/");
   var uuid_task = path[4];
@@ -36,7 +11,7 @@ function get_task(url) {
       console.log(returnData);
 
       // Save
-      task_save(JSON.parse(returnData));
+      task_save(JSON.parse(returnData).uuid);
     },
     error: function (xhr, ajaxOptions, thrownError) {
       console.log(thrownError);
